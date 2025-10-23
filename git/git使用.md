@@ -148,5 +148,14 @@ e5f6g7h HEAD@{1}: commit: 修复 PID 控制器
 git reset --hard 哈希值
 ```
 
+# 十一.子仓库
+
+子仓库是嵌套的独立的仓库,克隆时分支可以直接切换,而子模块需要额外初始化和更新
+
+```c
+git submodule init
+git submodule update
+```
+
 
 
