@@ -4,4 +4,6 @@
 
 📖 持续学习中，记录只是开始。  
 如果这些内容对你有帮助，欢迎 Star ⭐ 支持一下！
-
+```c
+克隆地址：git clone https://github.com/zyf0205/typora_notes.git
+````
