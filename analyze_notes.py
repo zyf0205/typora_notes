@@ -200,9 +200,43 @@ class NotesAnalyzer:
 
 def main():
     """主函数"""
+    import argparse
+    
+    parser = argparse.ArgumentParser(
+        description="📊 笔记分析工具 - 分析Typora笔记仓库的内容统计和主题分类",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+示例用法:
+  python3 analyze_notes.py                    # 分析当前目录的笔记
+  python3 analyze_notes.py -o report.md       # 指定输出文件名
+  python3 analyze_notes.py -p /path/to/notes  # 指定笔记目录
+
+生成的报告包含：
+  ✓ 笔记总数、行数、字数等统计
+  ✓ 主题分类和分布
+  ✓ 详细笔记列表
+  ✓ 内容特征分析
+  ✓ 学习建议
+        """
+    )
+    
+    parser.add_argument(
+        "-p", "--path",
+        default=".",
+        help="笔记目录路径 (默认: 当前目录)"
+    )
+    
+    parser.add_argument(
+        "-o", "--output",
+        default="笔记分析报告.md",
+        help="输出报告文件名 (默认: 笔记分析报告.md)"
+    )
+    
+    args = parser.parse_args()
+    
     print("🔍 开始分析笔记...")
-    analyzer = NotesAnalyzer(".")
-    analyzer.save_report()
+    analyzer = NotesAnalyzer(args.path)
+    analyzer.save_report(args.output)
     print("✨ 分析完成！")
 
 
