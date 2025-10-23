@@ -29,10 +29,12 @@ class NotesAnalyzer:
     def find_markdown_files(self):
         """查找所有markdown文件"""
         for md_file in self.repo_path.rglob("*.md"):
-            # 跳过 .git 目录和 README.md
+            # 跳过 .git 目录、README.md 和分析报告本身
             if ".git" in str(md_file):
                 continue
             if md_file.name == "README.md" and md_file.parent == self.repo_path:
+                continue
+            if md_file.name == "笔记分析报告.md":
                 continue
             self.notes.append(md_file)
         return self.notes
